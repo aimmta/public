@@ -1,8 +1,12 @@
 # public
- 
+
 The following writing samples are available in this repository:
 
-- Sample 1
-- Sample 2
-- Sample 3
-- Sample 4
+- Pages from ClerkAuction Administration User Guide
+  This sample was authored in DITA.
+
+- Pages from TaxSys Cashiering User Guide
+  This sample was authored in DITA.
+  
+- WebLogic Programmer's Reference
+- Hewlett-Packard DLKM
