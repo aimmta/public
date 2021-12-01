@@ -9,3 +9,5 @@ The following writing samples are in this repository:
 - WebLogic Programmer's Reference. This is an extract describing the Tuxedo API for a developer audience. This sample was authored in XML.
 
 - Hewlett-Packard DLKM. This extract from the HP-UX 11.0 user guide describes the dynamic loadable kernel module to an expert audience. This sample was authored in SGML.
+
+- Zowe CLI. Samples of my work in Zowe CLI are available in the Zowe Docs repository:  https://github.com/zowe/docs-site
