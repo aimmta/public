@@ -10,4 +10,4 @@ The following writing samples are in this repository:
 
 - Hewlett-Packard DLKM. This extract from the HP-UX 11.0 user guide describes the dynamic loadable kernel module to an expert audience. This sample was authored in SGML.
 
-- Zowe CLI. Samples of my work in Zowe CLI are available in the Zowe Docs repository:  https://github.com/zowe/docs-site
+- Zowe CLI. Samples of my work in Zowe CLI are available in the [Zowe Docs repository](https://github.com/zowe/docs-site).
