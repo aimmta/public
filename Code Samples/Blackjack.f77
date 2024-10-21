@@ -23,7 +23,7 @@
 
       ! Start game with an initial bankroll
       bankroll = 100.0
-      PRINT *, 'Welcome to Blackjack! You start with $', bankroll
+      PRINT '(A, F10.2)', 'Welcome to Blackjack! You start with $', bankroll
 
       ! Outer DO-WHILE loop to play again
       playAgain = 'y'
@@ -31,7 +31,7 @@
 
          ! Player places a bet
          DO
-            PRINT *, 'You have $', bankroll, '. How much would you like to bet?'
+            PRINT '(A, F10.2)', 'You have $', bankroll, '. How much would you like to bet?'
             READ *, bet
             IF (bet <= bankroll .AND. bet > 0) EXIT
             PRINT *, 'Invalid bet. Please enter a valid amount.'
@@ -120,7 +120,7 @@
 
          ! Ask if the player wants to play again, provided they still have money
          IF (bankroll > 0) THEN
-            PRINT *, 'You now have $', bankroll, '. Do you want to play again? (y/n)'
+            PRINT '(A, F10.2)', 'You now have $', bankroll, '. Do you want to play again? (y/n)'
             READ *, playAgain
          ELSE
             PRINT *, 'You''re out of money! Game over.'
@@ -129,7 +129,7 @@
 
       END DO
 
-      PRINT *, 'Thanks for playing! You ended with $', bankroll, '. Goodbye.'
+      PRINT '(A, F10.2)', 'Thanks for playing! You ended with $', bankroll, '. Goodbye.'
 
       END
 
