@@ -10,6 +10,7 @@
       CHARACTER*20 shuffledDeck(52)
       CHARACTER*1 choice, playAgain
       LOGICAL :: aceInHand
+      REAL :: bankroll, bet
 
       ! Explicitly declare the GetCardValue function as returning an INTEGER
       INTEGER :: GetCardValue
@@ -20,9 +21,21 @@
       ! Initialize card suits (Clubs, Diamonds, Hearts, Spades)
       DATA cardSuits / 'Clubs', 'Diamonds', 'Hearts', 'Spades' /
 
+      ! Start game with an initial bankroll
+      bankroll = 100.0
+      PRINT *, 'Welcome to Blackjack! You start with $', bankroll
+
       ! Outer DO-WHILE loop to play again
       playAgain = 'y'
-      DO WHILE (playAgain .EQ. 'y')
+      DO WHILE (playAgain .EQ. 'y' .AND. bankroll > 0)
+
+         ! Player places a bet
+         DO
+            PRINT *, 'You have $', bankroll, '. How much would you like to bet?'
+            READ *, bet
+            IF (bet <= bankroll .AND. bet > 0) EXIT
+            PRINT *, 'Invalid bet. Please enter a valid amount.'
+         END DO
 
          ! Initialize the deck (1 to 52)
          DO i = 1, 52
@@ -33,7 +46,7 @@
          CALL ShuffleDeck(deck)
 
          ! Start the Blackjack game
-         PRINT *, 'Welcome to Blackjack!'
+         PRINT *, 'Dealing cards...'
 
          ! Deal two cards to the player
          cardIndex = 1
@@ -63,6 +76,7 @@
 
             IF (playerTotal > 21) THEN
                PRINT *, 'You bust! Dealer wins.'
+               bankroll = bankroll - bet
                EXIT
             END IF
          END DO
@@ -92,22 +106,30 @@
             ! Determine the winner
             IF (dealerTotal > 21) THEN
                PRINT *, 'Dealer busts! You win.'
+               bankroll = bankroll + bet
             ELSE IF (playerTotal > dealerTotal) THEN
                PRINT *, 'You win with ', playerTotal, ' points!'
+               bankroll = bankroll + bet
             ELSE IF (playerTotal .EQ. dealerTotal) THEN
-               PRINT *, 'It''s a tie!'
+               PRINT *, 'It''s a tie! Your bet is returned.'
             ELSE
                PRINT *, 'Dealer wins with ', dealerTotal, ' points.'
+               bankroll = bankroll - bet
             END IF
          END IF
 
-         ! Ask if the player wants to play again
-         PRINT *, 'Do you want to play again? (y/n)'
-         READ *, playAgain
+         ! Ask if the player wants to play again, provided they still have money
+         IF (bankroll > 0) THEN
+            PRINT *, 'You now have $', bankroll, '. Do you want to play again? (y/n)'
+            READ *, playAgain
+         ELSE
+            PRINT *, 'You''re out of money! Game over.'
+            playAgain = 'n'
+         END IF
 
       END DO
 
-      PRINT *, 'Thanks for playing! Goodbye.'
+      PRINT *, 'Thanks for playing! You ended with $', bankroll, '. Goodbye.'
 
       END
 
