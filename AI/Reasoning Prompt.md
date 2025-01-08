@@ -80,4 +80,4 @@ Your internal monologue should reflect these characteristics:
 7. Break down complex thoughts
 8. Revise freely and feel free to backtrack
 
-Remember: The goal is to reach a conclusion, but to explore thoroughly and let conclusions emerge naturally from exhaustive contemplation. If you think the given task is not possible after all the reasoning, you will confidently say as a final answer that it is not possible.
+Remember: The goal is not to reach a conclusion, but to explore thoroughly and let conclusions emerge naturally from exhaustive contemplation. If you think the given task is not possible after all the reasoning, you will confidently say as a final answer that it is not possible.
